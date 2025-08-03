@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鲜渔码头 - 优质海鲜直供</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: #1a6fc9;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .contact-bar {
+            background-color: #0d4b8f;
+            padding: 10px;
+            text-align: center;
+            color: white;
+            font-size: 1.1rem;
+        }
+        
+        nav {
+            background-color: #333;
+            padding: 15px 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            background-color: #1a6fc9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        
+        .banner {
+            width: 100%;
+            height: 400px;
+            background-image: url('https://images.unsplash.com/photo-1518544866330-95a2becad742');
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .banner-text {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 500px;
+        }
+        
+        .banner-text h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin: 40px 0 30px;
+            font-size: 2rem;
+            color: #1a6fc9;
+        }
+        
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-image {
+            height: 200px;
+            background-color: #eee;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #1a6fc9;
+        }
+        
+        .product-price {
+            font-size: 1.5rem;
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .product-desc {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #1a6fc9;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #0d4b8f;
+        }
+        
+        .order-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .footer-contact {
+            margin-bottom: 20px;
+        }
+        
+        .copyright {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .banner {
+                height: 300px;
+            }
+            
+            .banner-text {
+                max-width: 80%;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">鲜渔码头</div>
+        <p>新鲜海产 · 直达餐桌</p>
+    </header>
+    
+    <div class="contact-bar">
+        <span>订购热线：187-5030-8883 | 批发合作：136-8505-5318</span>
+    </div>
+    
+    <nav>
+        <ul>
+            <li><a href="#home">首页</a></li>
+            <li><a href="#products">产品展示</a></li>
+            <li><a href="#about">关于我们</a></li>
+            <li><a href="#order">在线订购</a></li>
+            <li><a href="#contact">联系我们</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section id="home">
+            <div class="banner">
+                <div class="banner-text">
+                    <h2>新鲜海产，渔港直供</h2>
+                    <p>每日新鲜捕捞，冷链配送，保证品质新鲜</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="products">
+            <h2 class="section-title">精选海鲜</h2>
+            
+            <div class="products">
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1518977676601-b53f82aba655')"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">野生大黄鱼</h3>
+                        <div class="product-price">¥128/斤</div>
+                        <p class="product-desc">东海野生捕捞，肉质鲜嫩，营养丰富</p>
+                        <button class="btn">加入购物车</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1518544866330-95a2becad742')"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">鲜活大闸蟹</h3>
+                        <div class="product-price">¥88/只</div>
+                        <p class="product-desc">阳澄湖大闸蟹，膏肥黄满，中秋佳品</p>
+                        <button class="btn">加入购物车</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1579731058006-1c8f5c4f21a8')"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">深海大虾</h3>
+                        <div class="product-price">¥68/斤</div>
+                        <p class="product-desc">深海捕捞，个大肉厚，口感Q弹</p>
+                        <button class="btn">加入购物车</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1560964645-5296b50974d0')"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">新鲜鲍鱼</h3>
+                        <div class="product-price">¥198/斤</div>
+                        <p class="product-desc">深海养殖鲍鱼，肉质肥美，营养丰富</p>
+                        <button class="btn">加入购物车</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="order">
+            <h2 class="section-title">在线订购</h2>
+            
+            <form class="order-form" id="orderForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">姓名</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">电话</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">配送地址</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="product">选择产品</label>
+                        <select id="product" name="product" required>
+                            <option value="">-- 请选择 --</option>
+                            <option value="wild-yellow-croaker">野生大黄鱼 ¥128/斤</option>
+                            <option value="hairy-crab">鲜活大闸蟹 ¥88/只</option>
+                            <option value="deep-sea-shrimp">深海大虾 ¥68/斤</option>
+                            <option value="fresh-abalone">新鲜鲍鱼 ¥198/斤</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">数量</label>
+                        <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="delivery">配送方式</label>
+                    <select id="delivery" name="delivery" required>
+                        <option value="standard">标准配送 (2-3天)</option>
+                        <option value="express">加急配送 (次日达)</option>
+                        <option value="self-pickup">自提</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">备注</label>
+                    <textarea id="message" name="message" rows="3"></textarea>
+                </div>
+                
+                <button type="submit" class="btn" style="width: 100%; padding: 15px;">提交订单</button>
+            </form>
+        </section>
+        
+        <section id="contact">
+            <h2 class="section-title">联系我们</h2>
+            
+            <div style="text-align: center; margin-bottom: 50px;">
+                <p><strong>地址：</strong>福建省宁德市寿宁县武曲镇甲峰村</p>
+                <p><strong>电话：</strong>187-5030-8883（零售） | 136-8505-5318（批发）</p>
+                <p><strong>邮箱：</strong>a54wxx@outlook.com</p>
+                <p><strong>营业时间：</strong>周一至周日 8:00-18:00</p>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="footer-contact">
+            <p>鲜渔码头 - 专业海鲜供应商</p>
+            <p>订购热线：187-5030-8883 | 批发合作：136-8505-5318</p>
+        </div>
+        <div class="copyright">
+            &copy; 2023 鲜渔码头 版权所有
+        </div>
+    </footer>
+    
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 获取表单数据
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                address: document.getElementById('address').value,
+                product: document.getElementById('product').value,
+                quantity: document.getElementById('quantity').value,
+                delivery: document.getElementById('delivery').value,
+                message: document.getElementById('message').value
+            };
+            
+            // 这里可以添加AJAX请求将数据发送到服务器
+            // 现在只是模拟提交成功
+            alert('订单提交成功！我们会尽快与您联系确认订单详情。');
+            
+            // 重置表单
+            this.reset();
+        });
+    </script>
+</body>
+</html>
