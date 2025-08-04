@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>鲜渔码头 - 优质海鲜直供</title>
+    <title>江鲜渔获 - 优质鲫鱼、军鱼、长江扁鱼直销</title>
     <style>
-        /* 保留之前的所有样式 */
         :root {
             --primary-color: #2c8a67;
             --primary-dark: #1f6a4e;
@@ -16,363 +15,305 @@
             --white-color: #fff;
             --border-radius: 8px;
             --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
         }
         
-        /* 订单查询系统特有样式 */
-        .order-query-section {
-            background-color: var(--white-color);
-            padding: 40px;
+        /* 鱼类订单查询专用样式 */
+        .fish-order-query {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 25px;
+            background: var(--white-color);
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
-            max-width: 800px;
-            margin: 40px auto;
         }
         
-        .order-query-form .form-group {
+        .fish-order-form .form-group {
             margin-bottom: 20px;
         }
         
-        .order-query-form label {
+        .fish-order-form label {
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
             color: var(--primary-dark);
         }
         
-        .order-query-form input {
+        .fish-order-form input {
             width: 100%;
             padding: 12px;
             border: 1px solid #ddd;
             border-radius: var(--border-radius);
-            font-size: 1rem;
         }
         
-        .order-details {
-            margin-top: 30px;
+        .fish-order-details {
             display: none;
-            background-color: var(--light-color);
-            padding: 25px;
-            border-radius: var(--border-radius);
+            margin-top: 30px;
+            border-top: 2px solid var(--primary-color);
+            padding-top: 20px;
         }
         
-        .order-details h3 {
-            color: var(--primary-dark);
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        .order-info {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
+        .fish-order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 20px;
         }
         
-        .order-info p {
-            margin-bottom: 8px;
+        .fish-status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            background-color: var(--secondary-color);
+            color: #333;
+            font-weight: bold;
         }
         
-        .order-info strong {
-            color: var(--primary-dark);
-        }
-        
-        .order-items {
+        .fish-items-table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
         }
         
-        .order-items th {
+        .fish-items-table th {
             background-color: var(--primary-color);
             color: white;
             padding: 12px;
             text-align: left;
         }
         
-        .order-items td {
+        .fish-items-table td {
             padding: 12px;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #eee;
         }
         
-        .order-items tr:last-child td {
-            border-bottom: none;
-        }
-        
-        .order-total {
-            text-align: right;
-            margin-top: 20px;
-            font-size: 1.1rem;
-        }
-        
-        .order-status {
+        .fish-type-tag {
             display: inline-block;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-weight: bold;
-            margin-left: 10px;
+            padding: 3px 8px;
+            background-color: #e1f5fe;
+            color: #0288d1;
+            border-radius: 4px;
+            font-size: 0.85em;
         }
         
-        .status-pending {
-            background-color: #FFD700;
-            color: #333;
+        .fish-order-total {
+            text-align: right;
+            font-size: 1.1em;
+            margin-top: 20px;
         }
         
-        .status-processing {
-            background-color: #1E90FF;
-            color: white;
-        }
-        
-        .status-shipped {
-            background-color: #32CD32;
-            color: white;
-        }
-        
-        .status-delivered {
-            background-color: #2c8a67;
-            color: white;
-        }
-        
-        .status-cancelled {
-            background-color: #FF4500;
-            color: white;
-        }
-        
-        .no-orders {
-            text-align: center;
-            padding: 40px;
-            color: var(--gray-color);
-        }
-        
-        .query-btn {
+        .query-fish-btn {
             background-color: var(--primary-color);
             color: white;
             border: none;
             padding: 12px 25px;
             border-radius: var(--border-radius);
             cursor: pointer;
-            font-size: 1rem;
-            transition: var(--transition);
+            font-size: 1em;
+            transition: all 0.3s;
         }
         
-        .query-btn:hover {
+        .query-fish-btn:hover {
             background-color: var(--primary-dark);
         }
     </style>
 </head>
 <body>
-    <!-- 保留您网站原有的header、导航栏等部分 -->
+    <!-- 您网站原有的header和导航栏 -->
     
     <div class="container">
-        <!-- 在适当位置添加订单查询部分 -->
-        <section id="order-query">
-            <div class="section-title">
-                <h2>订单查询</h2>
-            </div>
+        <!-- 鱼类专用订单查询区 -->
+        <section class="fish-order-query">
+            <h2>渔获订单查询</h2>
+            <p>查询您订购的鲫鱼、军鱼、长江扁鱼等水产品订单状态</p>
             
-            <div class="order-query-section">
-                <form class="order-query-form" id="orderQueryForm">
-                    <div class="form-group">
-                        <label for="order-number">订单编号</label>
-                        <input type="text" id="order-number" name="order-number" placeholder="请输入您的订单编号" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="query-phone">联系电话</label>
-                        <input type="tel" id="query-phone" name="query-phone" placeholder="请输入下单时使用的电话号码" required>
-                    </div>
-                    
-                    <button type="submit" class="query-btn btn-block">查询订单</button>
-                </form>
+            <form class="fish-order-form" id="fishOrderForm">
+                <div class="form-group">
+                    <label for="fish-order-number">渔获订单编号</label>
+                    <input type="text" id="fish-order-number" placeholder="如: FISH2023001" required>
+                </div>
                 
-                <div id="order-results">
-                    <!-- 订单查询结果将在这里显示 -->
-                    <div class="no-orders" id="no-orders">
-                        <p>请输入订单编号和联系电话查询您的订单</p>
-                    </div>
-                    
-                    <div class="order-details" id="order-details">
-                        <h3>订单详情 <span class="order-status" id="order-status-badge">已发货</span></h3>
-                        
-                        <div class="order-info">
-                            <div>
-                                <p><strong>订单编号：</strong> <span id="order-number-display">ORD20230001</span></p>
-                                <p><strong>下单时间：</strong> <span id="order-date">2023-11-15 14:30:22</span></p>
-                            </div>
-                            <div>
-                                <p><strong>支付方式：</strong> <span id="payment-method">微信支付</span></p>
-                                <p><strong>配送方式：</strong> <span id="shipping-method">标准配送</span></p>
-                            </div>
-                        </div>
-                        
-                        <h4>商品清单</h4>
-                        <table class="order-items">
-                            <thead>
-                                <tr>
-                                    <th>商品名称</th>
-                                    <th>单价</th>
-                                    <th>数量</th>
-                                    <th>小计</th>
-                                </tr>
-                            </thead>
-                            <tbody id="order-items-list">
-                                <!-- 订单商品列表将通过JavaScript动态生成 -->
-                            </tbody>
-                        </table>
-                        
-                        <div class="order-total">
-                            <p><strong>商品总额：</strong> <span id="subtotal">¥324.00</span></p>
-                            <p><strong>运费：</strong> <span id="shipping-fee">¥0.00</span></p>
-                            <p><strong>应付总额：</strong> <span id="total-amount">¥324.00</span></p>
-                        </div>
-                        
-                        <div class="order-info">
-                            <div>
-                                <p><strong>收货人：</strong> <span id="receiver-name">张先生</span></p>
-                                <p><strong>联系电话：</strong> <span id="receiver-phone">187****8883</span></p>
-                            </div>
-                            <div>
-                                <p><strong>收货地址：</strong> <span id="shipping-address">福建省宁德市寿宁县武曲镇甲峰村</span></p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <label for="fish-phone">联系电话</label>
+                    <input type="tel" id="fish-phone" placeholder="下单时使用的手机号" required>
+                </div>
+                
+                <button type="submit" class="query-fish-btn">查询渔获订单</button>
+            </form>
+            
+            <div class="fish-order-details" id="fishOrderDetails">
+                <div class="fish-order-header">
+                    <h3>渔获订单详情</h3>
+                    <span class="fish-status" id="fishOrderStatus">已发货</span>
+                </div>
+                
+                <div class="fish-order-info">
+                    <p><strong>订单编号:</strong> <span id="fish-order-id">FISH2023001</span></p>
+                    <p><strong>下单时间:</strong> <span id="fish-order-date">2023-11-20 09:30</span></p>
+                    <p><strong>预计送达:</strong> <span id="fish-delivery-date">2023-11-22 15:00前</span></p>
+                </div>
+                
+                <h4>渔获清单</h4>
+                <table class="fish-items-table">
+                    <thead>
+                        <tr>
+                            <th>鱼类品种</th>
+                            <th>规格</th>
+                            <th>单价</th>
+                            <th>数量</th>
+                            <th>小计</th>
+                        </tr>
+                    </thead>
+                    <tbody id="fish-items-list">
+                        <!-- 动态生成渔获清单 -->
+                    </tbody>
+                </table>
+                
+                <div class="fish-order-total">
+                    <p><strong>商品总额:</strong> ¥<span id="fish-subtotal">356.00</span></p>
+                    <p><strong>保鲜包装费:</strong> ¥<span id="fish-packaging">15.00</span></p>
+                    <p><strong>总计:</strong> ¥<span id="fish-total">371.00</span></p>
+                </div>
+                
+                <div class="fish-delivery-info">
+                    <h4>配送信息</h4>
+                    <p><strong>收货人:</strong> <span id="fish-receiver">张先生</span></p>
+                    <p><strong>联系电话:</strong> <span id="fish-contact-phone">138****8888</span></p>
+                    <p><strong>收货地址:</strong> <span id="fish-address">上海市浦东新区张江高科技园区</span></p>
+                    <p><strong>特别要求:</strong> <span id="fish-notes">活鱼配送，请保持鲜活</span></p>
                 </div>
             </div>
         </section>
-        
-        <!-- 保留您网站原有的其他部分 -->
     </div>
     
-    <!-- 保留您网站原有的footer部分 -->
-    
     <script>
+        // 鱼类订单数据
+        const fishOrders = {
+            "FISH2023001": {
+                phone: "13812348888",
+                date: "2023-11-20 09:30",
+                status: "shipped",
+                statusText: "已发货",
+                delivery: "2023-11-22 15:00前",
+                items: [
+                    { 
+                        type: "长江鲫鱼", 
+                        spec: "鲜活, 500-600g/条", 
+                        price: "¥45.00/斤", 
+                        quantity: "3斤",
+                        total: "¥135.00",
+                        tag: "鲫鱼"
+                    },
+                    { 
+                        type: "野生军鱼", 
+                        spec: "鲜活, 600-800g/条", 
+                        price: "¥88.00/斤", 
+                        quantity: "1.5斤",
+                        total: "¥132.00",
+                        tag: "军鱼"
+                    },
+                    { 
+                        type: "长江扁鱼", 
+                        spec: "鲜活, 400-500g/条", 
+                        price: "¥59.00/斤", 
+                        quantity: "1.5斤",
+                        total: "¥89.00",
+                        tag: "长江扁鱼"
+                    }
+                ],
+                subtotal: "356.00",
+                packaging: "15.00",
+                total: "371.00",
+                receiver: "张先生",
+                phone: "13812348888",
+                address: "上海市浦东新区张江高科技园区",
+                notes: "活鱼配送，请保持鲜活"
+            },
+            "FISH2023002": {
+                phone: "13987654321",
+                date: "2023-11-21 14:15",
+                status: "processing",
+                statusText: "处理中",
+                delivery: "2023-11-24 12:00前",
+                items: [
+                    { 
+                        type: "野生军鱼", 
+                        spec: "鲜活, 800g以上/条", 
+                        price: "¥108.00/斤", 
+                        quantity: "2斤",
+                        total: "¥216.00",
+                        tag: "军鱼"
+                    }
+                ],
+                subtotal: "216.00",
+                packaging: "15.00",
+                total: "231.00",
+                receiver: "李女士",
+                phone: "13987654321",
+                address: "北京市海淀区中关村",
+                notes: "上午10点后配送"
+            }
+        };
+
         // 订单查询功能
-        document.getElementById('orderQueryForm').addEventListener('submit', function(e) {
+        document.getElementById('fishOrderForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const orderNumber = document.getElementById('order-number').value.trim();
-            const phone = document.getElementById('query-phone').value.trim();
+            const orderId = document.getElementById('fish-order-number').value.trim();
+            const phone = document.getElementById('fish-phone').value.trim();
             
-            if (!orderNumber || !phone) {
+            if (!orderId || !phone) {
                 alert('请输入订单编号和联系电话');
                 return;
             }
             
-            // 这里应该是AJAX请求到服务器查询订单
-            // 以下是模拟数据
-            const mockOrders = {
-                'ORD20230001': {
-                    number: 'ORD20230001',
-                    date: '2023-11-15 14:30:22',
-                    status: 'shipped',
-                    statusText: '已发货',
-                    products: [
-                        { name: '野生大黄鱼', price: '¥128.00/斤', quantity: 2, total: '¥256.00' },
-                        { name: '深海大虾', price: '¥68.00/斤', quantity: 1, total: '¥68.00' }
-                    ],
-                    subtotal: '¥324.00',
-                    shipping: '¥0.00',
-                    total: '¥324.00',
-                    paymentMethod: '微信支付',
-                    shippingMethod: '标准配送',
-                    receiver: {
-                        name: '张先生',
-                        phone: '18750308883',
-                        address: '福建省宁德市寿宁县武曲镇甲峰村'
-                    }
-                },
-                'ORD20230002': {
-                    number: 'ORD20230002',
-                    date: '2023-11-16 09:15:43',
-                    status: 'processing',
-                    statusText: '处理中',
-                    products: [
-                        { name: '鲜活大闸蟹', price: '¥88.00/只', quantity: 4, total: '¥352.00' }
-                    ],
-                    subtotal: '¥352.00',
-                    shipping: '¥15.00',
-                    total: '¥367.00',
-                    paymentMethod: '支付宝',
-                    shippingMethod: '加急配送',
-                    receiver: {
-                        name: '李女士',
-                        phone: '13685055318',
-                        address: '福建省宁德市寿宁县武曲镇甲峰村'
-                    }
-                }
-            };
-            
-            // 检查订单是否存在
-            if (mockOrders[orderNumber] && 
-                (mockOrders[orderNumber].receiver.phone === phone || 
-                 mockOrders[orderNumber].receiver.phone.replace(/\D/g, '') === phone.replace(/\D/g, ''))) {
+            // 查找订单
+            if (fishOrders[orderId] && fishOrders[orderId].phone === phone) {
+                const order = fishOrders[orderId];
                 
-                const order = mockOrders[orderNumber];
+                // 更新订单信息
+                document.getElementById('fish-order-id').textContent = orderId;
+                document.getElementById('fish-order-date').textContent = order.date;
+                document.getElementById('fish-delivery-date').textContent = order.delivery;
+                document.getElementById('fish-subtotal').textContent = order.subtotal;
+                document.getElementById('fish-packaging').textContent = order.packaging;
+                document.getElementById('fish-total').textContent = order.total;
+                document.getElementById('fish-receiver').textContent = order.receiver;
+                document.getElementById('fish-contact-phone').textContent = order.phone.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2');
+                document.getElementById('fish-address').textContent = order.address;
+                document.getElementById('fish-notes').textContent = order.notes;
                 
-                // 更新订单详情显示
-                document.getElementById('order-number-display').textContent = order.number;
-                document.getElementById('order-date').textContent = order.date;
-                document.getElementById('payment-method').textContent = order.paymentMethod;
-                document.getElementById('shipping-method').textContent = order.shippingMethod;
-                document.getElementById('subtotal').textContent = order.subtotal;
-                document.getElementById('shipping-fee').textContent = order.shipping;
-                document.getElementById('total-amount').textContent = order.total;
-                document.getElementById('receiver-name').textContent = order.receiver.name;
-                document.getElementById('receiver-phone').textContent = order.receiver.phone.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2');
-                document.getElementById('shipping-address').textContent = order.receiver.address;
+                // 更新状态
+                const statusElement = document.getElementById('fishOrderStatus');
+                statusElement.textContent = order.statusText;
+                statusElement.style.backgroundColor = 
+                    order.status === 'shipped' ? '#4CAF50' : 
+                    order.status === 'processing' ? '#FFC107' : '#9E9E9E';
                 
-                // 更新订单状态
-                const statusBadge = document.getElementById('order-status-badge');
-                statusBadge.textContent = order.statusText;
-                statusBadge.className = 'order-status';
-                
-                // 根据状态设置不同的样式
-                switch(order.status) {
-                    case 'pending':
-                        statusBadge.classList.add('status-pending');
-                        break;
-                    case 'processing':
-                        statusBadge.classList.add('status-processing');
-                        break;
-                    case 'shipped':
-                        statusBadge.classList.add('status-shipped');
-                        break;
-                    case 'delivered':
-                        statusBadge.classList.add('status-delivered');
-                        break;
-                    case 'cancelled':
-                        statusBadge.classList.add('status-cancelled');
-                        break;
-                }
-                
-                // 生成商品列表
-                const itemsList = document.getElementById('order-items-list');
+                // 生成渔获清单
+                const itemsList = document.getElementById('fish-items-list');
                 itemsList.innerHTML = '';
                 
-                order.products.forEach(product => {
+                order.items.forEach(item => {
                     const row = document.createElement('tr');
                     row.innerHTML = `
-                        <td>${product.name}</td>
-                        <td>${product.price}</td>
-                        <td>${product.quantity}</td>
-                        <td>${product.total}</td>
+                        <td>
+                            ${item.type} 
+                            <span class="fish-type-tag">${item.tag}</span>
+                        </td>
+                        <td>${item.spec}</td>
+                        <td>${item.price}</td>
+                        <td>${item.quantity}</td>
+                        <td>${item.total}</td>
                     `;
                     itemsList.appendChild(row);
                 });
                 
                 // 显示订单详情
-                document.getElementById('no-orders').style.display = 'none';
-                document.getElementById('order-details').style.display = 'block';
+                document.getElementById('fishOrderDetails').style.display = 'block';
                 
             } else {
-                // 没有找到订单
-                document.getElementById('no-orders').innerHTML = `
-                    <p>未找到匹配的订单信息</p>
-                    <p>请确认订单编号和联系电话是否正确</p>
-                `;
-                document.getElementById('no-orders').style.display = 'block';
-                document.getElementById('order-details').style.display = 'none';
+                alert('未找到匹配的渔获订单，请确认订单编号和联系电话是否正确');
+                document.getElementById('fishOrderDetails').style.display = 'none';
             }
         });
     </script>
