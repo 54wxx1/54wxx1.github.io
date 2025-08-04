@@ -3,467 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>江鲜渔获 - 优质鲫鱼、军鱼、长江扁鱼直销</title>
+    <title>甲峰村优质淡水鱼销售</title>
     <style>
-        :root {
-            --primary-color: #2c8a67;
-            --primary-dark: #1f6a4e;
-            --secondary-color: #f8b400;
-            --light-color: #f5f7fa;
-            --dark-color: #333;
-            --gray-color: #777;
-            --white-color: #fff;
-            --border-radius: 8px;
-            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         body {
             font-family: 'Microsoft YaHei', sans-serif;
             line-height: 1.6;
-            color: var(--dark-color);
-            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f5f5f5;
         }
-        
         header {
-            background-color: var(--primary-color);
+            background-color: #2c8a5a;
             color: white;
-            padding: 20px 0;
             text-align: center;
+            padding: 1rem 0;
         }
-        
-        nav {
-            background-color: var(--primary-dark);
-            padding: 15px 0;
-        }
-        
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin: 0 15px;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-        
-        nav ul li a:hover {
-            color: var(--secondary-color);
-        }
-        
         .container {
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
-        }
-        
-        .hero {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://example.com/fish-banner.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            margin-bottom: 40px;
-        }
-        
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin-bottom: 30px;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: #333;
-            padding: 12px 30px;
-            border-radius: var(--border-radius);
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-        
-        .btn:hover {
-            background-color: #e6a800;
-            transform: translateY(-3px);
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .section-title h2 {
-            color: var(--primary-dark);
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-        
-        .fish-products {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-        
-        .fish-card {
-            background-color: var(--white-color);
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            overflow: hidden;
-            transition: all 0.3s;
-        }
-        
-        .fish-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-        
-        .fish-img {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .fish-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: all 0.3s;
-        }
-        
-        .fish-card:hover .fish-img img {
-            transform: scale(1.05);
-        }
-        
-        .fish-content {
-            padding: 20px;
-        }
-        
-        .fish-content h3 {
-            color: var(--primary-dark);
-            margin-bottom: 10px;
-        }
-        
-        .fish-price {
-            font-size: 1.3rem;
-            color: var(--primary-color);
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-        
-        .fish-desc {
-            color: var(--gray-color);
-            margin-bottom: 20px;
-        }
-        
-        .order-form {
-            background-color: var(--white-color);
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            padding: 30px;
-            max-width: 800px;
-            margin: 0 auto 60px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--primary-dark);
-        }
-        
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: var(--border-radius);
-            font-size: 16px;
-        }
-        
-        .form-group textarea {
-            height: 100px;
-            resize: vertical;
-        }
-        
-        .form-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-        
-        .submit-btn {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-            width: 100%;
-            transition: all 0.3s;
-        }
-        
-        .submit-btn:hover {
-            background-color: var(--primary-dark);
-        }
-        
-        .contact-info {
-            background-color: var(--primary-dark);
-            color: white;
-            padding: 40px 0;
-            text-align: center;
-        }
-        
-        .contact-info h2 {
-            margin-bottom: 20px;
-        }
-        
-        .contact-methods {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .contact-method {
-            padding: 20px;
-        }
-        
-        .contact-method i {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: var(--secondary-color);
-        }
-        
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            text-align: center;
             padding: 20px 0;
         }
-        
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            nav ul li {
-                margin: 10px 0;
-            }
-            
-            .hero {
-                height: 300px;
-                padding: 0 20px;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
+        .fish-item {
+            background: white;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .fish-item h3 {
+            color: #2c8a5a;
+            margin-top: 0;
+        }
+        .contact-info {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .order-form {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #2c8a5a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #1f6e4a;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: white;
+            margin-top: 20px;
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <header>
-        <h1>江鲜渔获</h1>
-        <p>源自福建宁德的新鲜渔获，品质保证</p>
+        <h1>甲峰村优质淡水鱼销售</h1>
+        <p>新鲜美味，品质保证</p>
     </header>
-    
-    <nav>
-        <ul>
-            <li><a href="#home">首页</a></li>
-            <li><a href="#products">产品展示</a></li>
-            <li><a href="#order">在线订购</a></li>
-            <li><a href="#contact">联系我们</a></li>
-        </ul>
-    </nav>
-    
-    <section class="hero" id="home">
-        <h1>新鲜渔获 直达餐桌</h1>
-        <p>每日新鲜捕捞的鲫鱼、军鱼、长江扁鱼，从宁德渔场直接送到您家，保证鲜活美味</p>
-        <a href="#order" class="btn">立即订购</a>
-    </section>
-    
+
     <div class="container">
-        <section id="products">
-            <div class="section-title">
-                <h2>我们的产品</h2>
-                <p>精选优质鱼类，满足您的味蕾</p>
-            </div>
-            
-            <div class="fish-products">
-                <div class="fish-card">
-                    <div class="fish-img">
-                        <img src="https://example.com/jilu.jpg" alt="长江鲫鱼">
-                    </div>
-                    <div class="fish-content">
-                        <h3>长江鲫鱼</h3>
-                        <div class="fish-price">¥45.00/斤</div>
-                        <p class="fish-desc">野生捕捞，肉质鲜嫩，营养丰富，适合清蒸、红烧等多种烹饪方式</p>
-                        <a href="#order" class="btn">立即订购</a>
-                    </div>
-                </div>
-                
-                <div class="fish-card">
-                    <div class="fish-img">
-                        <img src="https://example.com/junyu.jpg" alt="野生军鱼">
-                    </div>
-                    <div class="fish-content">
-                        <h3>野生军鱼</h3>
-                        <div class="fish-price">¥88.00/斤</div>
-                        <p class="fish-desc">稀有野生品种，肉质紧实，味道鲜美，是宴客的上等食材</p>
-                        <a href="#order" class="btn">立即订购</a>
-                    </div>
-                </div>
-                
-                <div class="fish-card">
-                    <div class="fish-img">
-                        <img src="https://example.com/bianyu.jpg" alt="长江扁鱼">
-                    </div>
-                    <div class="fish-content">
-                        <h3>长江扁鱼</h3>
-                        <div class="fish-price">¥65.00/斤</div>
-                        <p class="fish-desc">体型扁平，肉质细腻，刺少肉多，特别适合老人和儿童食用</p>
-                        <a href="#order" class="btn">立即订购</a>
-                    </div>
-                </div>
-            </div>
+        <section class="fish-item">
+            <h3>鲫鱼</h3>
+            <p>我们提供的鲫鱼来自清澈的淡水水域，肉质鲜嫩，营养丰富，适合多种烹饪方式。</p>
+            <p><strong>价格：</strong>25元/斤</p>
         </section>
-        
-        <section id="order">
-            <div class="section-title">
-                <h2>在线订购</h2>
-                <p>填写以下表单，我们将尽快与您联系确认订单</p>
-            </div>
-            
-            <form class="order-form" name="fish-order" method="POST" netlify>
-                <input type="hidden" name="form-name" value="fish-order">
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">姓名</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">联系电话</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
+
+        <section class="fish-item">
+            <h3>军鱼</h3>
+            <p>军鱼是我们当地的特色鱼种，肉质紧实，味道鲜美，深受消费者喜爱。</p>
+            <p><strong>价格：</strong>35元/斤</p>
+        </section>
+
+        <section class="fish-item">
+            <h3>长江扁鱼</h3>
+            <p>长江扁鱼体型扁平，肉质细腻，刺少肉多，是家庭聚餐的理想选择。</p>
+            <p><strong>价格：</strong>30元/斤</p>
+        </section>
+
+        <section class="contact-info">
+            <h2>联系我们</h2>
+            <p><strong>电话：</strong>18750308883 / 13685055318</p>
+            <p><strong>邮箱：</strong><a href="mailto:a54wxx@outlook.com">a54wxx@outlook.com</a></p>
+            <p><strong>地址：</strong>福建省宁德市寿宁县武曲镇甲峰村</p>
+        </section>
+
+        <section class="order-form">
+            <h2>在线订购</h2>
+            <form id="fishOrderForm">
+                <div class="form-group">
+                    <label for="name">姓名：</label>
+                    <input type="text" id="name" name="name" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="address">收货地址</label>
+                    <label for="phone">联系电话：</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">送货地址：</label>
                     <input type="text" id="address" name="address" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="fish-type">选择鱼类</label>
-                    <select id="fish-type" name="fish-type" required>
-                        <option value="">-- 请选择 --</option>
-                        <option value="长江鲫鱼">长江鲫鱼 ¥45.00/斤</option>
-                        <option value="野生军鱼">野生军鱼 ¥88.00/斤</option>
-                        <option value="长江扁鱼">长江扁鱼 ¥65.00/斤</option>
+                    <label for="fishType">选择鱼种：</label>
+                    <select id="fishType" name="fishType" required>
+                        <option value="">--请选择--</option>
+                        <option value="鲫鱼">鲫鱼</option>
+                        <option value="军鱼">军鱼</option>
+                        <option value="长江扁鱼">长江扁鱼</option>
                     </select>
                 </div>
                 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="quantity">数量(斤)</label>
-                        <input type="number" id="quantity" name="quantity" min="1" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="delivery-date">期望配送日期</label>
-                        <input type="date" id="delivery-date" name="delivery-date" required>
-                    </div>
+                <div class="form-group">
+                    <label for="quantity">数量(斤)：</label>
+                    <input type="number" id="quantity" name="quantity" min="1" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="notes">特别要求(如:活鱼处理方式等)</label>
-                    <textarea id="notes" name="notes"></textarea>
+                    <label for="deliveryDate">期望送货日期：</label>
+                    <input type="date" id="deliveryDate" name="deliveryDate" required>
                 </div>
                 
-                <button type="submit" class="submit-btn">提交订单</button>
+                <div class="form-group">
+                    <label for="notes">备注：</label>
+                    <textarea id="notes" name="notes" rows="3"></textarea>
+                </div>
+                
+                <button type="submit">提交订单</button>
             </form>
         </section>
     </div>
-    
-    <section class="contact-info" id="contact">
-        <h2>联系我们</h2>
-        <div class="contact-methods">
-            <div class="contact-method">
-                <i class="fas fa-phone"></i>
-                <h3>电话订购</h3>
-                <p>零售咨询: 187-5030-8883</p>
-                <p>批发咨询: 136-8505-5318</p>
-            </div>
-            
-            <div class="contact-method">
-                <i class="fas fa-envelope"></i>
-                <h3>电子邮件</h3>
-                <p>a54wxx@outlook.com</p>
-            </div>
-            
-            <div class="contact-method">
-                <i class="fas fa-map-marker-alt"></i>
-                <h3>渔场地址</h3>
-                <p>福建省宁德市寿宁县武曲镇甲峰村</p>
-            </div>
-        </div>
-    </section>
-    
+
     <footer>
-        <p>&copy; 2023 江鲜渔获 - 优质鲫鱼、军鱼、长江扁鱼直销</p>
+        <p>&copy; 2023 甲峰村优质淡水鱼销售 版权所有</p>
     </footer>
-    
+
     <script>
-        // 设置默认配送日期为明天
-        const today = new Date();
-        const tomorrow = new Date(today);
-        tomorrow.setDate(tomorrow.getDate() + 1);
-        
-        const dd = String(tomorrow.getDate()).padStart(2, '0');
-        const mm = String(tomorrow.getMonth() + 1).padStart(2, '0');
-        const yyyy = tomorrow.getFullYear();
-        
-        document.getElementById('delivery-date').value = `${yyyy}-${mm}-${dd}`;
-        
-        // 表单提交后显示成功消息
-        if (window.location.search.includes('form-submitted=true')) {
-            alert('订单提交成功！我们将在1小时内与您联系确认订单详情。');
-            window.history.replaceState({}, document.title, window.location.pathname);
-        }
+        document.getElementById('fishOrderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 这里可以添加表单验证逻辑
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const fishType = document.getElementById('fishType').value;
+            const quantity = document.getElementById('quantity').value;
+            
+            if(!name || !phone || !fishType || !quantity) {
+                alert('请填写所有必填字段');
+                return;
+            }
+            
+            // 这里可以添加发送订单到服务器的代码
+            // 实际应用中应该使用AJAX发送到后端处理
+            alert('订单提交成功！我们会尽快与您联系确认订单详情。');
+            this.reset();
+        });
     </script>
 </body>
 </html>
