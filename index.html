@@ -3,192 +3,835 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>甲峰村优质淡水鱼销售</title>
+    <title>鲜渔码头 - 优质海鲜直供</title>
     <style>
-        body {
-            font-family: 'Microsoft YaHei', sans-serif;
-            line-height: 1.6;
+        :root {
+            --primary-color: #2c8a67;
+            --primary-dark: #1f6a4e;
+            --secondary-color: #f8b400;
+            --light-color: #f5f7fa;
+            --dark-color: #333;
+            --gray-color: #777;
+            --white-color: #fff;
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
             margin: 0;
             padding: 0;
-            color: #333;
-            background-color: #f5f5f5;
-        }
-        header {
-            background-color: #2c8a5a;
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-        }
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px 0;
-        }
-        .fish-item {
-            background: white;
-            border-radius: 5px;
-            padding: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .fish-item h3 {
-            color: #2c8a5a;
-            margin-top: 0;
-        }
-        .contact-info {
-            background: white;
-            padding: 20px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .order-form {
-            background: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        input, select, textarea {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
             box-sizing: border-box;
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
         }
-        button {
-            background-color: #2c8a5a;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
             font-size: 16px;
         }
-        button:hover {
-            background-color: #1f6e4a;
-        }
-        footer {
-            text-align: center;
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: var(--white-color);
             padding: 20px 0;
-            background-color: #333;
-            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="rgba(255,255,255,0.05)" d="M30,10L50,30L70,10L90,30L70,50L90,70L70,90L50,70L30,90L10,70L30,50L10,30L30,10Z"/></svg>');
+            opacity: 0.1;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin: 10px auto;
+            border-radius: 3px;
+        }
+        
+        .contact-bar {
+            background-color: var(--primary-dark);
+            padding: 12px;
+            text-align: center;
+            color: var(--white-color);
+            font-size: 1.1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-bar span {
+            display: inline-block;
+            margin: 0 15px;
+        }
+        
+        .contact-bar .highlight {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        
+        nav {
+            background-color: var(--white-color);
+            padding: 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 56px;
+            z-index: 99;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav ul li {
+            margin: 0;
+        }
+        
+        nav ul li a {
+            color: var(--dark-color);
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 18px 25px;
+            display: block;
+            transition: var(--transition);
+            font-weight: 500;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        nav ul li a::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover::after {
+            width: 70%;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        .banner {
+            width: 100%;
+            height: 500px;
+            background-image: url('https://images.unsplash.com/photo-1518544866330-95a2becad742');
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 50px;
+            border-radius: var(--border-radius);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .banner::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+        }
+        
+        .banner-text {
+            position: absolute;
+            bottom: 60px;
+            left: 60px;
+            color: var(--white-color);
+            max-width: 500px;
+        }
+        
+        .banner-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        
+        .banner-text p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary-dark);
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            border-radius: 3px;
+        }
+        
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .product-card {
+            background-color: var(--white-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-image {
+            height: 220px;
+            background-color: #eee;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .product-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .product-info {
+            padding: 25px;
+        }
+        
+        .product-title {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+        
+        .product-origin {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: var(--gray-color);
+            font-size: 0.9rem;
+        }
+        
+        .product-origin svg {
+            margin-right: 5px;
+            width: 16px;
+            height: 16px;
+            fill: var(--gray-color);
+        }
+        
+        .product-price {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .product-price span {
+            font-size: 1rem;
+            color: var(--gray-color);
+            text-decoration: line-through;
+            margin-left: 10px;
+        }
+        
+        .product-desc {
+            color: var(--gray-color);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            padding: 12px 25px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #e0a500;
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        .order-form {
+            background-color: var(--white-color);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: var(--light-color);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(44, 138, 103, 0.2);
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--white-color);
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-column p, 
+        .footer-column a {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 15px;
+            display: block;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .footer-column a:hover {
+            color: var(--white-color);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
             margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .social-links svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--white-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .banner {
+                height: 400px;
+            }
+            
+            .banner-text {
+                left: 40px;
+                bottom: 40px;
+            }
+            
+            .banner-text h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                flex: 1 0 auto;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                padding: 15px 10px;
+                font-size: 1rem;
+            }
+            
+            .banner {
+                height: 350px;
+            }
+            
+            .banner-text {
+                left: 30px;
+                bottom: 30px;
+                max-width: 80%;
+            }
+            
+            .banner-text h2 {
+                font-size: 1.8rem;
+            }
+            
+            .banner-text p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .contact-bar span {
+                display: block;
+                margin: 5px 0;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .banner {
+                height: 300px;
+            }
+            
+            .banner-text {
+                left: 20px;
+                bottom: 20px;
+            }
+            
+            .banner-text h2 {
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+            }
+            
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+            
+            .order-form {
+                padding: 25px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>甲峰村优质淡水鱼销售</h1>
-        <p>新鲜美味，品质保证</p>
+        <div class="logo">鲜渔码头</div>
+        <p>新鲜海产 · 直达餐桌</p>
     </header>
-
+    
+    <div class="contact-bar">
+        <span>订购热线：<span class="highlight">187-5030-8883</span></span>
+        <span>批发合作：<span class="highlight">136-8505-5318</span></span>
+    </div>
+    
+    <nav>
+        <ul>
+            <li><a href="#home">首页</a></li>
+            <li><a href="#products">产品展示</a></li>
+            <li><a href="#about">关于我们</a></li>
+            <li><a href="#order">在线订购</a></li>
+            <li><a href="#contact">联系我们</a></li>
+        </ul>
+    </nav>
+    
     <div class="container">
-        <section class="fish-item">
-            <h3>鲫鱼</h3>
-            <p>我们提供的鲫鱼来自清澈的淡水水域，肉质鲜嫩，营养丰富，适合多种烹饪方式。</p>
-            <p><strong>价格：</strong>25元/斤</p>
+        <section id="home">
+            <div class="banner">
+                <div class="banner-text">
+                    <h2>新鲜海产，渔港直供</h2>
+                    <p>每日新鲜捕捞，冷链配送，保证品质新鲜</p>
+                    <a href="#order" class="btn">立即订购</a>
+                </div>
+            </div>
         </section>
-
-        <section class="fish-item">
-            <h3>军鱼</h3>
-            <p>军鱼是我们当地的特色鱼种，肉质紧实，味道鲜美，深受消费者喜爱。</p>
-            <p><strong>价格：</strong>35元/斤</p>
+        
+        <section id="products">
+            <div class="section-title">
+                <h2>精选海鲜</h2>
+            </div>
+            
+            <div class="products">
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1518977676601-b53f82aba655')">
+                        <span class="product-tag">热销</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">野生大黄鱼</h3>
+                        <div class="product-origin">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
+                            </svg>
+                            福建宁德
+                        </div>
+                        <div class="product-price">¥128<span>¥158</span></div>
+                        <p class="product-desc">东海野生捕捞，肉质鲜嫩，营养丰富，适合清蒸、红烧等多种烹饪方式。</p>
+                        <button class="btn btn-block">加入购物车</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1518544866330-95a2becad742')">
+                        <span class="product-tag">新品</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">鲜活大闸蟹</h3>
+                        <div class="product-origin">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
+                            </svg>
+                            江苏阳澄湖
+                        </div>
+                        <div class="product-price">¥88/只</div>
+                        <p class="product-desc">阳澄湖大闸蟹，膏肥黄满，中秋佳品，每只重量约3.5-4两。</p>
+                        <button class="btn btn-block">加入购物车</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1579731058006-1c8f5c4f21a8')">
+                        <span class="product-tag">特惠</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">深海大虾</h3>
+                        <div class="product-origin">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
+                            </svg>
+                            南海海域
+                        </div>
+                        <div class="product-price">¥68<span>¥88</span></div>
+                        <p class="product-desc">深海捕捞，个大肉厚，口感Q弹，每斤约15-20只，适合白灼、油焖。</p>
+                        <button class="btn btn-block">加入购物车</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1560964645-5296b50974d0')">
+                        <span class="product-tag">限量</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">新鲜鲍鱼</h3>
+                        <div class="product-origin">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
+                            </svg>
+                            福建连江
+                        </div>
+                        <div class="product-price">¥198/斤</div>
+                        <p class="product-desc">深海养殖鲍鱼，肉质肥美，营养丰富，每斤约8-10只，适合炖汤、红烧。</p>
+                        <button class="btn btn-block">加入购物车</button>
+                    </div>
+                </div>
+            </div>
         </section>
-
-        <section class="fish-item">
-            <h3>长江扁鱼</h3>
-            <p>长江扁鱼体型扁平，肉质细腻，刺少肉多，是家庭聚餐的理想选择。</p>
-            <p><strong>价格：</strong>30元/斤</p>
-        </section>
-
-        <section class="contact-info">
-            <h2>联系我们</h2>
-            <p><strong>电话：</strong>18750308883 / 13685055318</p>
-            <p><strong>邮箱：</strong><a href="mailto:a54wxx@outlook.com">a54wxx@outlook.com</a></p>
-            <p><strong>地址：</strong>福建省宁德市寿宁县武曲镇甲峰村</p>
-        </section>
-
-        <section class="order-form">
-            <h2>在线订购</h2>
-            <form id="fishOrderForm">
-                <div class="form-group">
-                    <label for="name">姓名：</label>
-                    <input type="text" id="name" name="name" required>
+        
+        <section id="order">
+            <div class="section-title">
+                <h2>在线订购</h2>
+            </div>
+            
+            <form class="order-form" id="orderForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">姓名</label>
+                        <input type="text" id="name" name="name" required placeholder="请输入您的姓名">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">电话</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="请输入您的联系电话">
+                    </div>
                 </div>
                 
                 <div class="form-group">
-                    <label for="phone">联系电话：</label>
-                    <input type="tel" id="phone" name="phone" required>
+                    <label for="address">配送地址</label>
+                    <input type="text" id="address" name="address" required placeholder="请输入详细配送地址">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="product">选择产品</label>
+                        <select id="product" name="product" required>
+                            <option value="">-- 请选择 --</option>
+                            <option value="wild-yellow-croaker">野生大黄鱼 ¥128/斤</option>
+                            <option value="hairy-crab">鲜活大闸蟹 ¥88/只</option>
+                            <option value="deep-sea-shrimp">深海大虾 ¥68/斤</option>
+                            <option value="fresh-abalone">新鲜鲍鱼 ¥198/斤</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">数量</label>
+                        <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+                    </div>
                 </div>
                 
                 <div class="form-group">
-                    <label for="address">送货地址：</label>
-                    <input type="text" id="address" name="address" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="fishType">选择鱼种：</label>
-                    <select id="fishType" name="fishType" required>
-                        <option value="">--请选择--</option>
-                        <option value="鲫鱼">鲫鱼</option>
-                        <option value="军鱼">军鱼</option>
-                        <option value="长江扁鱼">长江扁鱼</option>
+                    <label for="delivery">配送方式</label>
+                    <select id="delivery" name="delivery" required>
+                        <option value="standard">标准配送 (2-3天) 免费</option>
+                        <option value="express">加急配送 (次日达) +¥15</option>
+                        <option value="self-pickup">自提 (寿宁县武曲镇甲峰村)</option>
                     </select>
                 </div>
                 
                 <div class="form-group">
-                    <label for="quantity">数量(斤)：</label>
-                    <input type="number" id="quantity" name="quantity" min="1" required>
+                    <label for="message">备注</label>
+                    <textarea id="message" name="message" rows="3" placeholder="如有特殊要求请在此说明"></textarea>
                 </div>
                 
-                <div class="form-group">
-                    <label for="deliveryDate">期望送货日期：</label>
-                    <input type="date" id="deliveryDate" name="deliveryDate" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="notes">备注：</label>
-                    <textarea id="notes" name="notes" rows="3"></textarea>
-                </div>
-                
-                <button type="submit">提交订单</button>
+                <button type="submit" class="btn btn-block" style="padding: 15px; font-size: 1.1rem;">提交订单</button>
             </form>
         </section>
+        
+        <section id="contact">
+            <div class="section-title">
+                <h2>联系我们</h2>
+            </div>
+            
+            <div style="text-align: center; margin-bottom: 60px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <div style="background-color: var(--white-color); padding: 30px; border-radius: var(--border-radius); box-shadow: var(--box-shadow);">
+                    <h3 style="margin-bottom: 20px; color: var(--primary-dark);">鲜渔码头海鲜直销</h3>
+                    <p style="margin-bottom: 15px;"><strong>地址：</strong>福建省宁德市寿宁县武曲镇甲峰村</p>
+                    <p style="margin-bottom: 15px;"><strong>零售电话：</strong>187-5030-8883</p>
+                    <p style="margin-bottom: 15px;"><strong>批发合作：</strong>136-8505-5318</p>
+                    <p style="margin-bottom: 15px;"><strong>邮箱：</strong>a54wxx@outlook.com</p>
+                    <p style="margin-bottom: 20px;"><strong>营业时间：</strong>周一至周日 8:00-18:00</p>
+                    <a href="#order" class="btn" style="display: inline-block; margin-top: 10px;">立即订购</a>
+                </div>
+            </div>
+        </section>
     </div>
-
+    
     <footer>
-        <p>&copy; 2023 甲峰村优质淡水鱼销售 版权所有</p>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>关于我们</h3>
+                <p>鲜渔码头成立于2015年，专注于提供优质海鲜产品，直接从渔港到餐桌，保证新鲜品质。</p>
+                <div class="social-links">
+                    <a href="#">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/>
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/>
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M18.16,8.64C18.16,7.01 17.07,5.53 15.24,5.53C13.41,5.53 12.32,7.01 12.32,8.64C12.32,10.27 13.41,11.75 15.24,11.75C17.07,11.75 18.16,10.27 18.16,8.64M12.34,18.67V8.71C12.34,7.12 12.59,5.59 13.85,4.46C14.26,4.09 14.85,3.84 15.24,3.84C15.63,3.84 16.22,4.09 16.63,4.46C17.89,5.59 18.14,7.12 18.14,8.71V18.67H12.34M11.66,18.67V8.71C11.66,7.12 11.41,5.59 10.15,4.46C9.74,4.09 9.15,3.84 8.76,3.84C8.37,3.84 7.78,4.09 7.37,4.46C6.11,5.59 5.86,7.12 5.86,8.71V18.67H11.66M5.86,18.67H0V8.71C0,5.3 2.71,2.58 6.11,2.58C9.52,2.58 12.24,5.3 12.24,8.71V18.67H6.11V8.71H5.86M18.14,18.67V8.71H18.39V18.67H18.14M24,18.67H18.39V8.71C18.39,5.3 21.1,2.58 24.5,2.58V18.67H24Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>快速链接</h3>
+                <a href="#home">首页</a>
+                <a href="#products">产品展示</a>
+                <a href="#about">关于我们</a>
+                <a href="#order">在线订购</a>
+                <a href="#contact">联系我们</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>联系方式</h3>
+                <p>福建省宁德市寿宁县武曲镇甲峰村</p>
+                <p>零售: 187-5030-8883</p>
+                <p>批发: 136-8505-5318</p>
+                <p>a54wxx@outlook.com</p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>营业时间</h3>
+                <p>周一至周六: 8:00 - 18:00</p>
+                <p>周日: 9:00 - 17:00</p>
+                <p>节假日正常营业</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2023 鲜渔码头 版权所有 | 闽ICP备XXXXXXXX号
+        </div>
     </footer>
-
+    
     <script>
-        document.getElementById('fishOrderForm').addEventListener('submit', function(e) {
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // 这里可以添加表单验证逻辑
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const fishType = document.getElementById('fishType').value;
-            const quantity = document.getElementById('quantity').value;
+            // 获取表单数据
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                address: document.getElementById('address').value,
+                product: document.getElementById('product').value,
+                quantity: document.getElementById('quantity').value,
+                delivery: document.getElementById('delivery').value,
+                message: document.getElementById('message').value
+            };
             
-            if(!name || !phone || !fishType || !quantity) {
-                alert('请填写所有必填字段');
+            // 简单的表单验证
+            if (!formData.name || !formData.phone || !formData.address || !formData.product) {
+                alert('请填写完整的订单信息！');
                 return;
             }
             
-            // 这里可以添加发送订单到服务器的代码
-            // 实际应用中应该使用AJAX发送到后端处理
-            alert('订单提交成功！我们会尽快与您联系确认订单详情。');
-            this.reset();
-        });
-    </script>
-</body>
-</html>
+            // 这里可以添加AJAX请求将数据发送到服务器
+            // 现在只是模拟提交成功
+            alert
